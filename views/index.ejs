@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fabrica de falas de Star Wars</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <h1 data-position="header">Que a força esteja com você.</h1>
+
+    <section data-position="add-quote">
+      <h2>Adicionar fala</h2>
+
+      <form action="/quotes" method="POST">
+        <input type="text" placeholder="Nome" name="name" />
+        <input type="text" placeholder="Fala" name="quote" />
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section data-position="update-quote">
+      <div>
+        <h2>A vingança dos Sith!</h2>
+        <p>
+          Substitua a frase do Yoda pela de Darth Vader
+        </p>
+        <button id="update-button">Substitua a frase do Yoda</button>
+      </div>
+    </section>
+
+    <section data-position="delete-quote">
+      <div>
+        <h2>O retorno do Jedi!</h2>
+        <p>
+          Delete uma das frases de Vader. Vai bugar se não tiver mais falas do Vader
+        </p>
+        <button id="delete-button">Delete uma fala de Darth Vader</button>
+      </div>
+      <div id="message"></div>
+    </section>
+
+    <section data-position="quotes">
+      <h2>Falas</h2>
+
+      <ul class="quotes">
+        <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+          <span><%= quotes[i].name %></span>:
+          <span><%= quotes[i].quote %></span>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
